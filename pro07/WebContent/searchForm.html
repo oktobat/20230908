@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+
+	<form name="frmSearch" action="searchBook" method="get">
+		<input type="text" name="bookname">
+		<button type="button" onclick="bookSearch()">검색</button>
+	</form>
+
+<script>
+	let input = document.querySelector('input')
+	input.addEventListener('keydown', function(e){
+		if (e.keyCode === 13) {
+			e.preventDefault()
+			bookSearch()
+		}
+	})
+	
+	function bookSearch(){
+		let frmSearch = document.frmSearch
+		let bookname = frmSearch.bookname.value
+		if (bookname.length==0 || bookname==""){
+			alert("도서명을 입력하세요.")
+			return false;
+		} 
+		frmSearch.submit();
+	}
+</script>
+</body>
+</html>

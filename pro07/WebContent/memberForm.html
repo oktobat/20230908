@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function fn_sendMember(){
+		let frmMember = document.frmMember;
+		let id = frmMember.id.value;
+		let pwd = frmMember.pwd.value;
+		let name = frmMember.name.value;
+		let email = frmMember.email.value;
+		let edomain = frmMember.edomain.value;
+		if (id.length==0 || id==""){
+			alert("아이디는 필수입니다.");
+		} else if (pwd.length==0 || pwd==""){
+			alert("비밀번호는 필수입니다.");
+		} else if (name.length==0 || name==""){
+			alert("이름은 필수입니다.");
+		} else if (email.length==0 || email==""){
+			alert("이메일은 필수입니다.");
+		} else if (edomain.length==0 || edomain==""){
+			alert("이메일은 필수입니다.");
+		} else {
+			frmMember.method = "post";
+			frmMember.action = "member3";
+			frmMember.submit();
+		}
+	}
+</script>
+</head>
+<body>
+
+	<form name="frmMember">
+		<h2>회원가입</h2>
+		<table>
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="id"></td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" name="pwd"></td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="name"></td>
+			</tr>
+			<tr>
+				<td>이메일</td>
+				<td>
+					<input type="text" name="email">
+					@
+					<select name="edomain">
+						<option value="daum.net">daum.net</option>
+						<option value="naver.com">naver.com</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>취미</td>
+				<td>
+					등산 : <input type="checkbox" name="hobby" value="등산"> 
+					독서 : <input type="checkbox" name="hobby" value="독서">
+					낚시 : <input type="checkbox" name="hobby" value="낚시">
+				</td>
+			</tr>
+		</table>
+		<input type="button" value="가입하기" onclick="fn_sendMember()">
+		<input type="hidden" name="command" value="addMember">
+	</form>
+
+</body>
+</html>
